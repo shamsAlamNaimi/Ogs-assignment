@@ -1,0 +1,34 @@
+import React from 'react';
+import {dataValues} from '../DataFiles/FilesDataValues.js'
+
+
+
+const dvalues=dataValues;
+
+class NavbarLeft extends React.Component{
+   render()   
+  {return (
+    
+    <div className="nav_bar_left">
+      <main>
+         <nav>
+          <ul>
+          {dataValues.articles.map((rows,id) =>(
+            <li ><a onClick={()=>this.props.cahngevalue(rows.id)}>{rows.heading}</a>
+            <ul>
+              {rows.body.map((urows,uid) => (
+              <li onClick={()=>this.props.sectionSelector(rows.id,uid)} style={{textAlign:"center",marginLeft:"4px",color:"#ff0080"}}>{urows.section}</li>
+              ))}
+            </ul>
+            
+            </li>
+            
+          ))}
+          </ul>
+           </nav>
+      </main>
+    </div>
+  );
+}}
+
+export default NavbarLeft;
